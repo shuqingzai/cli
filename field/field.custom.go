@@ -44,6 +44,36 @@ func (f Field[T]) LteExpr(expr clause.Expression) clause.Expression {
 	return clause.Lte{Column: f.column, Value: expr}
 }
 
+// Like creates a LIKE pattern matching expression (field LIKE pattern).
+func (f Field[T]) Like(pattern string) clause.Expression {
+	return clause.Like{Column: f.column, Value: pattern}
+}
+
+// NotLike creates a NOT LIKE pattern matching expression (field NOT LIKE pattern).
+func (f Field[T]) NotLike(pattern string) clause.Expression {
+	return clause.Expr{SQL: "? NOT LIKE ?", Vars: []any{f.column, pattern}}
+}
+
+// ILike creates a case-insensitive LIKE pattern matching expression (field ILIKE pattern).
+func (f Field[T]) ILike(pattern string) clause.Expression {
+	return clause.Expr{SQL: "? ILIKE ?", Vars: []any{f.column, pattern}}
+}
+
+// NotILike creates a case-insensitive NOT LIKE pattern matching expression (field NOT ILIKE pattern).
+func (f Field[T]) NotILike(pattern string) clause.Expression {
+	return clause.Expr{SQL: "? NOT ILIKE ?", Vars: []any{f.column, pattern}}
+}
+
+// Regexp creates a regular expression matching expression (field REGEXP pattern).
+func (f Field[T]) Regexp(pattern string) clause.Expression {
+	return clause.Expr{SQL: "? REGEXP ?", Vars: []any{f.column, pattern}}
+}
+
+// NotRegexp creates a regular expression not matching expression (field NOT REGEXP pattern).
+func (f Field[T]) NotRegexp(pattern string) clause.Expression {
+	return clause.Expr{SQL: "? NOT REGEXP ?", Vars: []any{f.column, pattern}}
+}
+
 // Between creates a range comparison expression (field BETWEEN v1 AND v2).
 func (f Field[T]) Between(v1, v2 T) clause.Expression {
 	return clause.And(
