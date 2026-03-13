@@ -45,13 +45,13 @@ func (e {{$IfaceName}}Impl[T]) {{.Name}}({{.ParamsString}}) ({{.ResultString}}) 
 {{end}}
 
 {{range .Structs}}
-type {{.Name}}Operator struct {
+type {{.Name}}Typer struct {
 	{{range .Fields -}}
 	{{.Name}} {{.Type}}
 	{{end}}
 }
 
-var {{.Name}} = {{.Name}}Operator {
+var {{.Name}} = {{.Name}}Typer {
 	{{range .Fields -}}
 	{{.Name}}: {{.Value}},
 	{{end -}}
