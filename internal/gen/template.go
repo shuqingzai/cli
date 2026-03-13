@@ -45,7 +45,7 @@ func (e {{$IfaceName}}Impl[T]) {{.Name}}({{.ParamsString}}) ({{.ResultString}}) 
 {{end}}
 
 {{range .Structs}}
-type {{.Name}}Operator = struct {
+type {{.Name}}Operator struct {
 	{{range .Fields -}}
 	{{.Name}} {{.Type}}
 	{{end}}
