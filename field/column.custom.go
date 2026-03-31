@@ -32,44 +32,44 @@ func simpleColumnString(column clause.Column) string {
 	return buf.String()
 }
 
-// SimpleColumnString returns the column name for selecting
+// SimpleColumn returns the column name for selecting
 //
 // Simple build column name for selecting cases
-func (f Field[T]) SimpleColumnString() string {
+func (f Field[T]) SimpleColumn() string {
 	return simpleColumnString(f.column)
 }
 
-// SimpleColumnString returns the column name for selecting
+// SimpleColumn returns the column name for selecting
 //
 // Simple build column name for selecting cases
-func (s String) SimpleColumnString() string {
+func (s String) SimpleColumn() string {
 	return simpleColumnString(s.column)
 }
 
-// SimpleColumnString returns the column name for selecting
+// SimpleColumn returns the column name for selecting
 //
 // Simple build column name for selecting cases
-func (b Bool) SimpleColumnString() string {
+func (b Bool) SimpleColumn() string {
 	return simpleColumnString(b.column)
 }
 
-// SimpleColumnString returns the column name for selecting
+// SimpleColumn returns the column name for selecting
 //
 // Simple build column name for selecting cases
-func (b Bytes) SimpleColumnString() string {
+func (b Bytes) SimpleColumn() string {
 	return simpleColumnString(b.column)
 }
 
-// SimpleColumnString returns the column name for selecting
+// SimpleColumn returns the column name for selecting
 //
 // Simple build column name for selecting cases
-func (t Time) SimpleColumnString() string {
+func (t Time) SimpleColumn() string {
 	return simpleColumnString(t.column)
 }
 
-// SimpleColumnString returns the column name for selecting
+// SimpleColumn returns the column name for selecting
 //
 // Simple build column name for selecting cases
-func (n Number[T]) SimpleColumnString() string {
+func (n Number[T]) SimpleColumn() string {
 	return simpleColumnString(n.column)
 }
